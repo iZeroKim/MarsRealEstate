@@ -61,9 +61,10 @@ class OverviewViewModel : ViewModel() {
     private fun getMarsRealEstateProperties() {
         viewModelScope.launch {
             try {
+                //Get all mars properties
                 _properties.value = MarsApi.retrofitService.getProperties()
                 _response.value = "Mars properties retrieved"
-                //Get first property
+
             }catch (e: Exception){
                 _response.value = "Failure: ${e.message}"
 
