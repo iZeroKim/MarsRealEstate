@@ -50,6 +50,8 @@ class OverviewFragment : Fragment() {
         // Giving the binding access to the OverviewViewModel
         binding.viewModel = viewModel
 
+        //Initialize Recyclerview adapter
+        binding.rcView.adapter = PropertyAdapter()
         setHasOptionsMenu(true)
         return binding.root
     }
