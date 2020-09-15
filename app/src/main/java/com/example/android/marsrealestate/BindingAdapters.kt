@@ -22,9 +22,11 @@ import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
+//ImageView binding adapter
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?){
     imgUrl?.let {
+        //Create an ImageUri
         val imUri = imgUrl.toUri().buildUpon().scheme("https").build()
         Glide.with(imgView.context)
                 .load(imUri)
