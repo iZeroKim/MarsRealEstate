@@ -17,4 +17,32 @@
 
 package com.example.android.marsrealestate.network
 
+import retrofit2.Call
+import retrofit2.Retrofit
+import retrofit2.converter.scalars.ScalarsConverterFactory
+import retrofit2.http.GET
+
+//Base Url
 private const val BASE_URL = "https://android-kotlin-fun-mars-server.appspot.com/"
+
+//Retrofit
+private  val retrofit = Retrofit.Builder()
+        //Converter Factory
+        .addConverterFactory(ScalarsConverterFactory.create())
+        //Base Url
+        .baseUrl(BASE_URL)
+        .build()
+
+//Interface that determines how Retrofit communicates with web server
+interface MarsApiService {
+    @GET("realestate")
+    fun  getProperties(): Call<String>
+}
+
+
+//Object to initialize the Api
+object MarsApi{
+    val retrofitService: MarsApiService by  lazy {
+        retrofit.create(MarsApiService::class.java)
+    }
+}
