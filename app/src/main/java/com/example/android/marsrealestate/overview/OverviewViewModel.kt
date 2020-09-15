@@ -30,6 +30,8 @@ import retrofit2.Response
 import java.lang.Exception
 import javax.security.auth.callback.Callback
 
+//enum to represent  available statuses
+enum class MarsApiStatus{ LOADING, ERROR, DONE}
 /**
  * The [ViewModel] that is attached to the [OverviewFragment].
  */

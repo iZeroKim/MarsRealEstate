@@ -43,7 +43,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?){
 
 //RecyclerView binding adapter
 @BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: List<MarsProperty?>){
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<MarsProperty>?){
     val adapter = recyclerView.adapter as PropertyAdapter
     adapter.submitList(data)
 }
