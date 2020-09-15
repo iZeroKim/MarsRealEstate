@@ -44,7 +44,7 @@ private  val retrofit = Retrofit.Builder()
 //Interface that determines how Retrofit communicates with web server
 interface MarsApiService {
     @GET("realestate")
-    fun  getProperties(): Call<String>
+    fun  getProperties(): Call<List<MarsProperty>>
 }
 
 
