@@ -21,6 +21,8 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.marsrealestate.R
 import com.example.android.marsrealestate.databinding.FragmentOverviewBinding
 
@@ -52,6 +54,7 @@ class OverviewFragment : Fragment() {
 
         //Initialize Recyclerview adapter
         binding.rcView.adapter = PropertyAdapter()
+        binding.rcView.layoutManager = GridLayoutManager(requireContext(), 1)
         setHasOptionsMenu(true)
         return binding.root
     }
