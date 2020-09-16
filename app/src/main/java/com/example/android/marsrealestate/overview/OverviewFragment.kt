@@ -20,7 +20,9 @@ package com.example.android.marsrealestate.overview
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.marsrealestate.R
@@ -54,7 +56,17 @@ class OverviewFragment : Fragment() {
         binding.viewModel = viewModel
 
         //Initialize Recyclerview adapter
-        binding.rcView.adapter = PropertyAdapter()
+        binding.rcView.adapter = PropertyAdapter(PropertyAdapter.OnClickListener{
+            viewModel.displayPropertyDetails(it)
+        })
+
+        viewModel.navigateToSelectedProperty.observe(this, Observer {
+            if (null != it){
+                this.findNavController().navigate(
+                        OverviewFragmentDirections.actionShowDetail())
+                viewModel.displayPropertyDetailsComplete()
+            }
+        })
         binding.rcView.layoutManager = GridLayoutManager(requireContext(), 1)
         setHasOptionsMenu(true)
         return binding.root

@@ -34,6 +34,8 @@ class DetailFragment : Fragment() {
         val application = requireNotNull(activity).application
         val binding = FragmentDetailBinding.inflate(inflater)
         binding.lifecycleOwner = this
+
+        //val marsProperty = DetailFragmentArgs.fromBundle(arguments!!).selectedProperty
         return binding.root
     }
 }
